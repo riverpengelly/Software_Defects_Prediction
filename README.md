@@ -15,6 +15,32 @@ Features
 * Class-wise feature comparison
 * Machine Learning model training and validation
 
+
+| Feature          | Description                                        |
+|:-----------------|:---------------------------------------------------|
+| loc              | McCabe's line count of code                        |
+| v(g)             | McCabe's cyclomatic complexity                     |
+| ev(g)            | McCabe's essential complexity                      |
+| iv(g)            | McCabe's design complexity                         |
+| n                | Halstead total operators + operands                |
+| v                | Halstead volume                                    |
+| l                | Halstead program length                            |
+| d                | Halstead difficulty                                |
+| i                | Halstead intelligence                              |
+| e                | Halstead effort                                    |
+| b                | Halstead bugs                                      |
+| t                | Halstead's time estimator                          |
+| lOCode           | Halstead's line count                              |
+| lOComment        | Halstead's count of lines of comments              |
+| lOBlank          | Halstead's count of blank lines                    |
+| lOCodeAndComment | Combination of Code and Comments                   |
+| uniq_Op          | Unique operators                                   |
+| uniq_Opnd        | Unique operands                                    |
+| total_Op         | Total operators                                    |
+| total_Opnd       | Total operands                                     |
+| branchCount      | Flow graph                                         |
+| defects          | Defects Y/N                                        |
+
 Model Training:
 * A Random Forest Classifier was used as the primary model.
 
