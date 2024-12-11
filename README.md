@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/3a423be7-8899-4e84-8cfa-eafdd602dcd4)
 Kaggle Tabular Data Analysis Project
 
 Overview
