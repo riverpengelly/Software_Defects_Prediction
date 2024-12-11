@@ -42,7 +42,7 @@ Features
 | branchCount      | Flow graph                                         |
 | defects          | Defects Y/N                                        |
 
-Visualization of the data. (matching features against the defect)
+Visualization of the data. (matching features against the defect class)
 ![image](https://github.com/user-attachments/assets/3e4864e1-ea19-4dde-ba99-47e8039813a8)
 
 
