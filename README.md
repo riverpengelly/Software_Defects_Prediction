@@ -2,15 +2,15 @@ Kaggle Tabular Data Analysis Project
 
 Overview
 
-* This project demonstrates a complete pipeline for training and evaluating machine learning models on a Kaggle tabular dataset. The workflow includes preprocessing, feature engineering, model training, validation, and generating predictions for the test dataset. The objective is to achieve meaningful predictions for classification tasks while adhering to Kaggle’s submission requirements.
+* This project demonstrates a complete pipeline for training and evaluating machine learning models on a Kaggle tabular dataset. The workflow includes preprocessing, model training, validation, and generating predictions for the test dataset. The objective is to achieve meaningful predictions for classification tasks while adhering to Kaggle’s submission requirements.
 
 Features
 
-* Comprehensive data preprocessing pipeline
+* Data preprocessing
 * Handling missing values
 * Feature normalization using MinMaxScaler
-* One-hot encoding for categorical features (if applicable)
-* Histograms and boxplots for feature distribution
+* One-hot encoding for target variable
+* Histograms for feature distribution
 * Logarithmic scale visualizations for skewed data
 * Class-wise feature comparison
 * Machine Learning model training and validation
