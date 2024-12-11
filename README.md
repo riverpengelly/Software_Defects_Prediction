@@ -51,6 +51,8 @@ Model Training:
 
 Evaluation:
 * Metrics like Accuracy, Precision, Recall, F1-Score, and ROC-AUC were computed to assess model performance on the validation dataset.
+* ![image](https://github.com/user-attachments/assets/18912926-71be-4cfd-8c42-ea2dc4ab4600)
+
 
 Test Dataset:
 * The trained model was applied to the preprocessed test dataset.
