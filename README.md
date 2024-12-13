@@ -1,14 +1,14 @@
 ![image](https://github.com/user-attachments/assets/3a423be7-8899-4e84-8cfa-eafdd602dcd4)
 Kaggle Tabular Project: Software Defect Prediction
 
-Project Overview
+**Project Overview:**
 * Challenge Link: https://www.kaggle.com/competitions/playground-series-s3e23/data
 
 **Description:**
 * The goal of this competition is to predict whether a software module will be defective based on the provided dataset of software metrics. The dataset includes both static code attributes and defect indicators, offering a real-world challenge for identifying bugs before software deployment. The target variable is a binary classification (Defective: Yes/No). When tested on a split test dataset the model returned an accuracy of **80.84%**
 * This is higher than the current top leaderboard submission of 79.42% accuracy (all Kaggle submissions are tested against 80% of the test dataset.)
 
-**Dataset Description**
+**Dataset Description:**
 * The dataset includes 22 software metrics (featured below) collected from modules of a larger system. These metrics measure code by its complexity, coupling, cohesion, and size which are correlated with software quality.
 
       | **Feature Name**      | **Description**                     |
@@ -52,7 +52,7 @@ Project Overview
 * Number of Features: float64(17), int64(5), and (bool(1) target [defects] column)
 
 
-**Data Cleaning and Preparation**
+**Data Cleaning and Preparation:**
 * Dropped Unncesssary columns:
   * [id]
   * [defects]
@@ -72,7 +72,7 @@ Project Overview
 
 ![image](https://github.com/user-attachments/assets/812023a8-8e47-4d9a-aacf-7d1baa1afeb0)
 
-**Machine Learning**
+**Machine Learning:**
 * Problem Formulation:
   * Binary classification problem (`True`/`False`)
 * Data Splits:
@@ -105,11 +105,11 @@ Project Overview
 **Observations:**
 * The model performed extremely well without any excessive usage of hyperparameters or fine tuning. Other models were tested; yet, random forest returned the best results and did so in a suprisingly short amount of time. Official Kaggle submission has not been done yet, but I will attempt to get my model tested as it performed quite well against the validation and test split.
 
- **Additional Information**
+ **Additional Information:**
   *  15% test submission dataset: `testsubmission.csv`
   * Kaggle test submission dataset: `submission.csv`
 
-**Prerequisites**
+**Prerequisites:**
 * Python 3.7+
 
 **Required Python packages:**
@@ -118,9 +118,9 @@ Project Overview
 * matplotlib
 * scikit-learn
 
-**Acknowledgements**
+**Acknowledgements:**
 * Kaggle for providing the dataset.
 * Scikit-learn for enabling efficient machine learning development.
 
-**Contact**
+**Contact:**
 * For any inquiries or contributions, feel free to contact me at [riverpengelly@gmail.com].
