@@ -1,85 +1,126 @@
 ![image](https://github.com/user-attachments/assets/3a423be7-8899-4e84-8cfa-eafdd602dcd4)
-Kaggle Tabular Data Analysis Project
+Kaggle Tabular Project: Software Defect Prediction
 
-Overview
+Project Overview
+* Challenge Link: https://www.kaggle.com/competitions/playground-series-s3e23/data
 
-* This project demonstrates a complete pipeline for training and evaluating machine learning models on a Kaggle tabular dataset. The workflow includes preprocessing, model training, validation, and generating predictions for the test dataset. The objective is to achieve meaningful predictions for classification tasks while adhering to Kaggle’s submission requirements.
+**Description:**
+* The goal of this competition is to predict whether a software module will be defective based on the provided dataset of software metrics. The dataset includes both static code attributes and defect indicators, offering a real-world challenge for identifying bugs before software deployment. The target variable is a binary classification (Defective: Yes/No). When tested on a split test dataset the model returned an accuracy of **80.84%**
+* This is higher than the current top leaderboard submission of 79.42% accuracy (all Kaggle submissions are tested against 80% of the test dataset.)
 
-Features
+**Dataset Description**
+* The dataset includes 22 software metrics (featured below) collected from modules of a larger system. These metrics measure code by its complexity, coupling, cohesion, and size which are correlated with software quality.
 
-* Data preprocessing
-* Handling missing values
-* Feature normalization using MinMaxScaler
-* One-hot encoding for target variable
-* Histograms for feature distribution
-* Logarithmic scale visualizations for skewed data
-* Class-wise feature comparison
-* Machine Learning model training and validation
-
-
-| Feature          | Description                                        |
-|:-----------------|:---------------------------------------------------|
-| loc              | McCabe's line count of code                        |
-| v(g)             | McCabe's cyclomatic complexity                     |
-| ev(g)            | McCabe's essential complexity                      |
-| iv(g)            | McCabe's design complexity                         |
-| n                | Halstead total operators + operands                |
-| v                | Halstead volume                                    |
-| l                | Halstead program length                            |
-| d                | Halstead difficulty                                |
-| i                | Halstead intelligence                              |
-| e                | Halstead effort                                    |
-| b                | Halstead bugs                                      |
-| t                | Halstead's time estimator                          |
-| lOCode           | Halstead's line count                              |
-| lOComment        | Halstead's count of lines of comments              |
-| lOBlank          | Halstead's count of blank lines                    |
-| lOCodeAndComment | Combination of Code and Comments                   |
-| uniq_Op          | Unique operators                                   |
-| uniq_Opnd        | Unique operands                                    |
-| total_Op         | Total operators                                    |
-| total_Opnd       | Total operands                                     |
-| branchCount      | Flow graph                                         |
-| defects          | Defects Y/N                                        |
-
-Visualization of the data. (matching features against the defect class)
-![image](https://github.com/user-attachments/assets/3e4864e1-ea19-4dde-ba99-47e8039813a8)
+      | **Feature Name**      | **Description**                     |
+      |-----------------------|-------------------------------------|
+      | loc                   | Lines of Code                       |
+      | v(g)                  | Cyclomatic Complexity               |
+      | ev(g)                 | Essential Complexity                |
+      | iv(g)                 | Module Design Complexity            |
+      | n                     | Operands                            |
+      | v                     | Halstead Volume                     |
+      | l                     | Halstead Level                      |
+      | d                     | Halstead Difficulty                 |
+      | i                     | Halstead Intelligence               |
+      | e                     | Halstead Effort                     |
+      | b                     | Halstead Bugs                       |
+      | t                     | Halstead Time                       |
+      | IOCode                | Code Lines                          |
+      | IOComment             | Comment Lines                       |
+      | IOBlank               | Blank Lines                         |
+      | locCodeAndComment     | Lines of Code and Comment           |
+      | uniq_Op               | Unique Operators                    |
+      | uniq_Opnd             | Unique Operands                     |
+      | total_Op              | Total Operators                     |
+      | total_Opnd            | Total Operands                      |
+      | branchCount           | Branch Count                        |
+      | defects               | Defect Presence (Target)            |
 
 
-Model Training:
-* A Random Forest Classifier was used as the primary model.
+**Files Provided:**
 
-Evaluation:
-* Metrics like Accuracy, Precision, Recall, F1-Score, and ROC-AUC were computed to assess model performance on the validation dataset.
-* ![image](https://github.com/user-attachments/assets/18912926-71be-4cfd-8c42-ea2dc4ab4600)
+* train.csv – Training dataset with feature and target columns.
+* test.csv – Test dataset for predictions.
+* sample_submission.csv – Example of the required submission format.
+
+**Data Download and Extraction:**
+* Performed on Windows 10 OS, powershell commands may need personal tweaking to fit linux or mac OS kernels.
+
+**Data Summary:**
+
+* Number of Rows: 101,763
+* Number of Features: float64(17), int64(5), and (bool(1) target [defects] column)
 
 
-Test Dataset:
-* The trained model was applied to the preprocessed test dataset.
+**Data Cleaning and Preparation**
+* Dropped Unncesssary columns:
+  * [id]
+  * [defects]
+    
+* Missing Value Handling:
+  * Extensive missing value methods were used but none were found. 
 
-* Predictions were saved to a CSV file in the required format for Kaggle submission.
+* Feature Rescaling:
+  * Normalized all numeric features using Min-Max scaling for consistency.
 
-Key Results
+* Feature Encoding:
+  * One-hot encoded the categorical column [Defects]
 
-* Validation Accuracy: Achieved 80.6% accuracy on the validation dataset using the Random Forest Classifier.
+**Data Understanding:**
+* All 22 features were plotted against the target [defects] column to determine highly correlated features and negatively correlated features:
+* Logarithmic scaling was used to discern better analysis of key features.
 
-* ROC-AUC: Measured as a secondary performance metric to evaluate classification quality.
+![image](https://github.com/user-attachments/assets/812023a8-8e47-4d9a-aacf-7d1baa1afeb0)
 
-Prerequisites
+**Machine Learning**
+* Problem Formulation:
+  * Binary classification problem (`True`/`False`)
+* Data Splits:
+  * Training Data: 70%
+  * Validation Data: 15%
+  * Test Data: 15%
+* Algorithm:
+  * Model Used: Random Forest Classifier
+
+#### *Performance metrics on the model:*
+      | **Metric**        | **Value**      |
+      |--------------------|---------------|
+      | **Accuracy**       | 0.8084        |
+      | **ROC-AUC Score**  | 0.7710        |
+
+#### *Classification Report*
+    | **Class** | **Precision** | **Recall** | **F1-Score** | **Support** |
+    |-----------|---------------|------------|--------------|-------------|
+    | 0         | 0.83          | 0.94       | 0.88         | 11,805      |
+    | 1         | 0.64          | 0.36       | 0.46         | 3,460       |
+    
+    | **Metric**       | **Accuracy** | **Macro Avg** | **Weighted Avg** |
+    |-------------------|--------------|---------------|------------------|
+    | Precision         | -            | 0.74          | 0.79             |
+    | Recall            | -            | 0.65          | 0.81             |
+    | F1-Score          | -            | 0.67          | 0.79             |
+    | Support           | 15,265       | 15,265        | 15,265           |
+
+
+**Observations:**
+* The model performed extremely well without any excessive usage of hyperparameters or fine tuning. Other models were tested; yet, random forest returned the best results and did so in a suprisingly short amount of time. Official Kaggle submission has not been done yet, but I will attempt to get my model tested as it performed quite well against the validation and test split.
+
+ **Additional Information**
+  *  15% test submission dataset: `testsubmission.csv`
+  * Kaggle test submission dataset: `submission.csv`
+
+**Prerequisites**
 * Python 3.7+
 
-Required Python packages:
+**Required Python packages:**
 * pandas
 * numpy
 * matplotlib
 * scikit-learn
 
-License
-* This project is licensed under the MIT License. See the LICENSE file for more details.
-
-Acknowledgements
+**Acknowledgements**
 * Kaggle for providing the dataset.
 * Scikit-learn for enabling efficient machine learning development.
 
-Contact
+**Contact**
 * For any inquiries or contributions, feel free to contact me at [riverpengelly@gmail.com].
